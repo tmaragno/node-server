@@ -1,0 +1,22 @@
+box: node
+build:
+  steps:    
+    - internal/docker-build: 
+        dockerfile: Dockerfile 
+        image-name: my-new-image # temporary name used to refer to this image in a subsequent step
+    - internal/docker-push: 
+        image-name: my-new-image
+        username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
+        password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
+        registry: https://registry.hub.docker.com/v2
+        repository: $USERNAME/node-server
+        tag: latest
+restart-occs:
+  steps:
+    # Manage Oracle Container Cloud Service container test	
+    - peternagy/oracle-occs-container-util:
+        occs_user: $OCCS_USER
+        occs_password: $OCCS_PASSWORD
+        rest_server_url: $REST_SERVER_URL
+        function: $FUNCTION
+        deployment_name: $DEPLOYMENT_NAME

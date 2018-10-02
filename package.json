@@ -1,0 +1,13 @@
+{
+    "name": "rest_server",
+    "version": "1.0.0",
+    "description": "NodeJS server",
+    "author": "Thomas Maragno thomas.maragno@oracle.com",
+    "main": "restserver.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "latest"
+    }
+}
