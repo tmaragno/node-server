@@ -5,7 +5,7 @@ var PORT = process.env.PORT || 8081;
 
 app.get('/status', function (req, res) {
         res.set('Content-Type', 'application/json');
-        res.end('{"status": {"message": "Servicio funcionando correctamente."}}');
+        res.end('{"status": {"message": "Servicio funcionando correctamente. 10 de Octubre 2018"}}');
 })
 
 app.get('/sum', function (req, res) {
